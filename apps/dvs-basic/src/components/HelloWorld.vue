@@ -8,13 +8,35 @@ const add = testStore((state: any) => state.add)
 const clear = testStore((state: any) => state.clear)
 
 const count = ref(0)
+const dialogVisible = ref(false)
+
+const handleClick = () => {
+  console.log(window);
+  dialogVisible.value = true
+}
 </script>
 
 <template>
+  <el-dialog
+      v-model="dialogVisible"
+      title="Tips"
+      width="500"
+  >
+    <span>This is a message</span>
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button @click="dialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogVisible = false">
+          Confirm
+        </el-button>
+      </div>
+    </template>
+  </el-dialog>
+  <el-button type="primary" @click="handleClick">点击测试</el-button>
   <h1>{{ msg }}</h1>
   <div>store.bears: {{ bears }}</div>
-  <button @click="add">add</button>
-  <button @click="clear">clear</button>
+  <el-button @click="add">add</el-button>
+  <el-button @click="clear">clear</el-button>
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
