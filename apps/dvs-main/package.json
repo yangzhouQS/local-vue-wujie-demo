@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.4.19",
-    "wujie-vue3": "^1.0.22",
+    "wujie-vue3": "workspace:*",
     "sun-store": "workspace:*"
   },
   "devDependencies": {

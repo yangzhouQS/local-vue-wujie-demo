@@ -1,6 +1,6 @@
 <template>
-  <WujieVue width="100%" height="50%" name="vite" :url="viteUrl1" />
-  <WujieVue width="100%" height="50%" name="vite1" :url="viteUrl2" />
+  <WujieVue width="100%" height="50%" name="vite" :url="viteUrl1" :sync="true"/>
+<!--  <WujieVue width="100%" height="50%" name="vite1" :url="viteUrl2" />-->
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "vue-router": "^4.3.0",
     "element-plus": "^2.8.6",
     "vue": "^3.4.19",
     "sun-store":"workspace:*"

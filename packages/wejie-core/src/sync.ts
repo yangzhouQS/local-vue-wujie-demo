@@ -95,7 +95,10 @@ export function clearInactiveAppUrl(): void {
 }
 
 /**
- * 推送指定url到主应用路由
+ * 将指定的 URL 推送到主应用的路由中
+ *
+ * @param id 子应用的唯一标识符
+ * @param url 需要推送的 URL
  */
 export function pushUrlToWindow(id: string, url: string): void {
   let winUrlElement = anchorElementGenerator(window.location.href);
@@ -112,7 +115,10 @@ export function pushUrlToWindow(id: string, url: string): void {
 }
 
 /**
- * 应用跳转(window.location.href)情况路由处理
+ * 处理应用通过window.location.href跳转时的路由逻辑
+ *
+ * 当浏览器历史记录发生变化时（如用户点击浏览器的前进或后退按钮），此函数会根据当前URL中的参数和沙箱环境，
+ * 来决定是否需要重新渲染子应用或恢复子应用的原始状态。
  */
 export function processAppForHrefJump(): void {
   window.addEventListener("popstate", () => {

@@ -1,11 +1,11 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
-import WujieVue  from "wujie-vue3";
-import { RouteLocationRaw } from 'vue-router';
+import WujieVue from "wujie-vue3";
+import {RouteLocationRaw} from 'vue-router';
 import router from './router'
 
-const { setupApp,preloadApp,bus } = WujieVue;
+const {setupApp, preloadApp, bus} = WujieVue;
 
 const subMap: Record<string, string> = {
   "//localhost:1110/": "/dvs-basic/",

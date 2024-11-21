@@ -181,9 +181,15 @@ export function setupApp(options: cacheOptions): void {
 
 /**
  * 运行无界app
+ *
+ * @param startOptions 启动选项，包含应用名称、URL、HTML模板、替换规则、fetch函数等
+ * @returns 返回一个函数，用于销毁应用实例；如果应用实例未初始化，则返回undefined
  */
 export async function startApp(startOptions: startOptions): Promise<Function | void> {
+  // 获取渲染过的缓存
   const sandbox = getWujieById(startOptions.name);
+
+  // 获取缓存过的配置
   const cacheOptions = getOptionsById(startOptions.name);
   // 合并缓存配置
   const options = mergeOptions(startOptions, cacheOptions);

@@ -119,6 +119,15 @@ export function setAttrsToElement(element: HTMLElement, attrs: { [key: string]: 
   });
 }
 
+/**
+ * 解析应用路由
+ *
+ * 将给定的URL解析为包含URL元素、应用主机路径和应用路由路径的对象。
+ *
+ * @param url 需要解析的URL字符串
+ * @returns 包含URL元素、应用主机路径和应用路由路径的对象
+ * @throws 如果提供的URL为空，则抛出错误
+ */
 export function appRouteParse(url: string): {
   urlElement: HTMLAnchorElement;
   appHostPath: string;

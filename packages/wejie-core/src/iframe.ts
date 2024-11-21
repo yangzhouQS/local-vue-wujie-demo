@@ -152,6 +152,13 @@ function patchIframeEvents(iframeWindow: Window) {
   };
 }
 
+/**
+ * 向iframe的window对象中注入wujie相关的变量
+ *
+ * @param iframeWindow iframe的window对象
+ * @param wujie wujie实例
+ * @param appHostPath 应用托管路径
+ */
 function patchIframeVariable(iframeWindow: Window, wujie: WuJie, appHostPath: string): void {
   iframeWindow.__WUJIE = wujie;
   iframeWindow.__WUJIE_PUBLIC_PATH__ = appHostPath + "/";
@@ -377,8 +384,9 @@ export function patchEventTimeStamp(targetWindow: Window, iframeWindow: Window) 
 }
 
 /**
- * patch document effect
- * @param iframeWindow
+ * 对iframe中的document对象进行打补丁，以处理事件监听和属性访问
+ *
+ * @param iframeWindow iframe的window对象
  */
 // TODO 继续改进
 function patchDocumentEffect(iframeWindow: Window): void {
@@ -665,6 +673,12 @@ function stopIframeLoading(iframeWindow: Window) {
   });
 }
 
+/**
+ * 为元素打补丁，使其能够在 iframe 环境中正确运行
+ *
+ * @param element 需要打补丁的元素，可以是 HTMLElement、Node 或 ShadowRoot，且包含一个可选的 _hasPatch 属性
+ * @param iframeWindow iframe 的 window 对象
+ */
 export function patchElementEffect(
   element: (HTMLElement | Node | ShadowRoot) & { _hasPatch?: boolean },
   iframeWindow: Window
